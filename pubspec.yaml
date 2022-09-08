@@ -1,0 +1,28 @@
+name: kantinkejujuran
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.18.0-147.0.dev <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  flutter_barcode_scanner: ^2.0.0
+  http:
+  intl: ^0.17.0
+  currency_text_input_formatter: ^2.1.7
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+  assets:
+      - assets/images/
+      - assets/images/background.jpg
+
