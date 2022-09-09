@@ -106,9 +106,8 @@ class AddCartView extends GetView<AddCartController> {
                 child: ElevatedButton(
                     child: Icon(Icons.sync),
                     onPressed: () async {
-                      if (controller.isLoading.isFalse) {
-                        await controller.updateCart();
-                      }
+                      // if (controller.isLoading.isFalse) {}
+                      await controller.updateCart();
                     }),
               ),
               Padding(

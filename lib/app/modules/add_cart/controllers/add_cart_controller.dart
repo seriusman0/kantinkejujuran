@@ -19,6 +19,23 @@ class AddCartController extends GetxController {
   RxList<int> totalC = [0].obs;
   List<int> idCart = [0];
 
+  Future<void> addCart(String scannedQrcode) async {
+    try {
+      return await http.post(
+        Uri.parse("$server/add_cart.php"),
+        body: {'id': scannedQrcode},
+      ).then((value) {
+        Get.snackbar("Nilai yang dikirim ", "$scannedQrcode");
+        if (value.body.isNotEmpty) {
+          this.getCartProduct();
+        }
+      });
+    } catch (e) {
+      Get.snackbar("Gagal", "$e");
+      print(e);
+    }
+  }
+
   Future<void> scanQR() async {
     try {
       scannedQrcode = await FlutterBarcodeScanner.scanBarcode(
@@ -107,21 +124,4 @@ class AddCartController extends GetxController {
   @override
   void onClose() {}
   void increment() => count.value++;
-
-  Future<void> addCart(String scannedQrcode) async {
-    try {
-      return await http.post(
-        Uri.parse("$server/add_cart.php"),
-        body: {'id': scannedQrcode},
-      ).then((value) {
-        Get.snackbar("Nilai yang dikirim ", "$scannedQrcode");
-        if (value.body.isNotEmpty) {
-          this.getCartProduct();
-        }
-      });
-    } catch (e) {
-      Get.snackbar("Gagal", "$e");
-      print(e);
-    }
-  }
 }
