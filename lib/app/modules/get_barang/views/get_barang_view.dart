@@ -41,112 +41,12 @@ class GetBarangView extends GetView<GetBarangController> {
                                       Text("${controller.harga_barang[index]}"),
                                 ),
                               ),
-                              Expanded(
-                                child: Center(
-                                    child: Obx((() => Text(
-                                        textAlign: TextAlign.right,
-                                        NumberFormat.currency(
-                                                locale: 'id',
-                                                decimalDigits: 0,
-                                                symbol: "Rp ")
-                                            .format(controller
-                                                    .harga_barang[index] *
-                                                controller
-                                                    .harga_barang[index]))))),
-                              ),
-                              // Expanded(
-                              //   child: Row(children: [
-                              //     Expanded(
-                              //       child: ElevatedButton(
-                              //           onPressed: () {
-                              //             (controller.jumlah[index] > 0)
-                              //                 ? controller.jumlah[index] -= 1
-                              //                 : 0;
-                              //             controller.totalC[index] =
-                              //                 controller.jumlah[index] *
-                              //                     controller.harga[index];
-                              //           },
-                              //           child: Text("-")),
-                              //     ),
-                              //     Expanded(
-                              //       child: Center(
-                              //           child: Obx((() => Text(controller
-                              //               .jumlah[index]
-                              //               .toString())))),
-                              //     ),
-                              //     Expanded(
-                              //       child: ElevatedButton(
-                              //           onPressed: () {
-                              //             controller.jumlah[index] += 1;
-                              //             controller.totalC[index] =
-                              //                 controller.jumlah[index] *
-                              //                     controller.harga[index];
-                              //           },
-                              //           child: Text("+")),
-                              //     )
-                              //   ]),
-                              // )
                             ]),
                           ));
                       // Text( "$index Nama Produk = ${controller.namaBarang[index]}"),);
                     },
                   ),
           )),
-          // ElevatedButton(
-          //   child: Text("Bayar"),
-          //   onPressed: () {
-          //     if (controller.idCart.length > 0 &&
-          //         controller.isLoading.isFalse) {
-          //       controller.updateCart();
-          //       Get.offAllNamed(Routes.CHECK_OUT);
-          //     }
-          //   },
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ElevatedButton(
-          //           child: Icon(Icons.sync),
-          //           onPressed: () async {
-          //             // if (controller.isLoading.isFalse) {}
-          //             await controller.updateCart();
-          //           }),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ElevatedButton(
-          //           child: Icon(Icons.add),
-          //           onPressed: () {
-          //             controller.scanQR();
-          //             controller.getCartProduct();
-          //           }),
-          //     ),
-          //     Expanded(
-          //       child: Column(
-          //         mainAxisAlignment: MainAxisAlignment.start,
-          //         children: [
-          //           Text("Total"),
-          //           Padding(
-          //             padding: const EdgeInsets.all(8),
-          //             child: Container(
-          //                 child: Obx(
-          //               () => Text(
-          //                   style: TextStyle(fontSize: 30),
-          //                   textAlign: TextAlign.right,
-          //                   NumberFormat.currency(
-          //                           locale: 'id',
-          //                           decimalDigits: 0,
-          //                           symbol: "Rp ")
-          //                       .format(controller.totalC.sum)),
-          //             )),
-          //           ),
-          //         ],
-          //       ),
-          //     )
-          //   ],
-          // ),
         ],
       ),
     );
