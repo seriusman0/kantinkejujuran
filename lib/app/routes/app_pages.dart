@@ -1,11 +1,15 @@
 import 'package:get/get.dart';
 
+import '../modules/add_barang/bindings/add_barang_binding.dart';
+import '../modules/add_barang/views/add_barang_view.dart';
 import '../modules/add_cart/bindings/add_cart_binding.dart';
 import '../modules/add_cart/views/add_cart_view.dart';
 import '../modules/check_out/bindings/check_out_binding.dart';
 import '../modules/check_out/views/check_out_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/home_admin/bindings/home_admin_binding.dart';
+import '../modules/home_admin/views/home_admin_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 
@@ -36,6 +40,16 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOME_ADMIN,
+      page: () => HomeAdminView(),
+      binding: HomeAdminBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_BARANG,
+      page: () => AddBarangView(),
+      binding: AddBarangBinding(),
     ),
   ];
 }

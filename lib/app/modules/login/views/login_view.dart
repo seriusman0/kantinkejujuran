@@ -9,6 +9,7 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('LOGIN'),
         centerTitle: true,
@@ -42,6 +43,7 @@ class LoginView extends GetView<LoginController> {
                         textAlign: TextAlign.start,
                       ),
                       TextField(
+                        controller: controller.usernameC,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
@@ -58,6 +60,7 @@ class LoginView extends GetView<LoginController> {
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                       TextField(
+                        controller: controller.passwordC,
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -84,7 +87,7 @@ class LoginView extends GetView<LoginController> {
                                       ? "Sign In"
                                       : "LOADING  . . ."),
                                   onPressed: () {
-                                    // controller.login();
+                                    controller.login();
                                   }),
                             )),
                           ),

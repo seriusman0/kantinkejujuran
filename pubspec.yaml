@@ -14,6 +14,7 @@ dependencies:
   currency_text_input_formatter: ^2.1.7
   flutter: 
     sdk: flutter
+  flutter_session_manager: ^1.0.3
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
