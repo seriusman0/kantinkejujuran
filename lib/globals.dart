@@ -26,9 +26,10 @@ class Global {
   }
 
   static Future<void> destroySession() async {
-    await SessionManager().set("isLogin", false);
-    await SessionManager().set("id", "");
-    await SessionManager().set("nama", "");
+    await SessionManager().set("isLogin", true);
+    await SessionManager().set("id_user", "");
+    await SessionManager().set("nama_user", "");
+    await SessionManager().set("nohp_user", "");
     await SessionManager().set("username", "");
     await SessionManager().set("password", "");
     await SessionManager().set("otoritas", "");

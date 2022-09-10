@@ -6,6 +6,7 @@ import 'dart:developer' as developer;
 import 'package:http/http.dart' as http;
 
 import '../../../../globals.dart';
+import '../../../routes/app_pages.dart';
 
 class GetBarangController extends GetxController {
   RxBool isLoading = false.obs;
@@ -13,6 +14,25 @@ class GetBarangController extends GetxController {
   RxList<String> nama_barang = ['loading data, silakan tunggu'].obs;
   RxList<int> harga_barang = [0].obs;
   final server = Global.server;
+
+  Future deleteBarang(var id) async {
+    try {
+      return await http.post(
+        Uri.parse("$server/del_barang.php"),
+        body: {"id_barang": id},
+      ).then((value) {
+        if (value.body.isNotEmpty) {
+          var data = json.decode(value.body);
+          Get.snackbar("Result", data["message"]);
+          Get.offAllNamed(Routes.GET_BARANG);
+        }
+      });
+    } catch (e) {
+      print(e);
+      Get.snackbar("Result", e.toString());
+      Get.offAllNamed(Routes.GET_BARANG);
+    }
+  }
 
   Future<RxList<String>> getBarang() async {
     try {

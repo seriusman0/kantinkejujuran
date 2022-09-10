@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../globals.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/home_admin_controller.dart';
 
@@ -25,6 +26,12 @@ class HomeAdminView extends GetView<HomeAdminController> {
               child: Text("Daftar Barang")),
         ],
       )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await Global.destroySession();
+        },
+        child: Icon(Icons.logout),
+      ),
     );
   }
 }
