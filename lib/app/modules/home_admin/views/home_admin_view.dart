@@ -10,7 +10,7 @@ class HomeAdminView extends GetView<HomeAdminController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeAdminView'),
+        title: Text('Home Admin'),
         centerTitle: true,
       ),
       body: Center(
@@ -20,6 +20,9 @@ class HomeAdminView extends GetView<HomeAdminController> {
           ElevatedButton(
               onPressed: () => Get.offAllNamed(Routes.ADD_BARANG),
               child: Text("Tambah Barang")),
+          ElevatedButton(
+              onPressed: () => Get.offAllNamed(Routes.GET_BARANG),
+              child: Text("Daftar Barang")),
         ],
       )),
     );

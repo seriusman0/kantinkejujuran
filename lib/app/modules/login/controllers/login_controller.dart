@@ -10,8 +10,8 @@ import '../../../routes/app_pages.dart';
 class LoginController extends GetxController {
   RxBool isLoading = false.obs;
   var server = Global.server;
-  TextEditingController usernameC = TextEditingController(text: "nomar");
-  TextEditingController passwordC = TextEditingController(text: "nomars");
+  TextEditingController usernameC = TextEditingController();
+  TextEditingController passwordC = TextEditingController();
 
   Future<dynamic> login() async {
     if (usernameC.text.isNotEmpty && passwordC.text.isNotEmpty) {
