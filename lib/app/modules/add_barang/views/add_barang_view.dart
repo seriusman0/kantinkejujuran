@@ -107,7 +107,7 @@ class AddBarangView extends GetView<AddBarangController> {
               padding: const EdgeInsets.only(left: 8, right: 8),
               child: TextField(
                   autofocus: false,
-                  controller: controller.nama_barang,
+                  controller: controller.harga_barang,
                   textAlign: TextAlign.center,
                   inputFormatters: [
                     CurrencyTextInputFormatter(
@@ -123,7 +123,11 @@ class AddBarangView extends GetView<AddBarangController> {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Tambah Barang")),
+            ElevatedButton(
+                onPressed: () {
+                  controller.submit();
+                },
+                child: Text("Tambah Barang")),
           ],
         ),
       ),

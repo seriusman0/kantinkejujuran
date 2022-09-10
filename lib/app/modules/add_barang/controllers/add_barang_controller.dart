@@ -25,6 +25,7 @@ class AddBarangController extends GetxController {
         ScanMode.BARCODE,
       );
       if (scannedQrcode.value != "-1") {
+        id_barang.text = scannedQrcode.value;
         Get.snackbar(
           "Result",
           "QR Code " + scannedQrcode.value,
@@ -37,10 +38,16 @@ class AddBarangController extends GetxController {
     } catch (e) {}
   }
 
-  Future payOut() async {
+  Future submit() async {
     try {
+      if (id_barang.text == '' &&
+          nama_barang.text == '' &&
+          harga_barang.text == '') {
+        Get.snackbar("Error", "Semua field wajib diisi");
+        throw new FormatException();
+      }
       return await http.post(
-        Uri.parse("$server/payment.php"),
+        Uri.parse("$server/add_barang.php"),
         body: {
           "id_barang": id_barang.value.text,
           "harga_barang": harga_barang.value.text,
@@ -49,18 +56,12 @@ class AddBarangController extends GetxController {
       ).then((value) {
         if (value.body.isNotEmpty) {
           var data = json.decode(value.body);
-          // print(data["message"]);
           Get.snackbar("Berhasil", "$data");
         }
-        Get.snackbar("Berhasil", "Input Barang Berhasil");
       });
     } catch (e) {
       print(e);
       Get.snackbar("Gagal", "Input Barang Gagal");
-      // if (this.totalC.value == 0) {
-      //   Get.offAllNamed(Routes.ADD_CART);
-      // } else
-      //   Get.offAllNamed(Routes.CHECK_OUT);
     }
   }
 
