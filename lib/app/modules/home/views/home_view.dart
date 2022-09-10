@@ -19,21 +19,24 @@ class HomeView extends GetView<HomeController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: Center(child: Text("")),
-              ),
               ElevatedButton(
                 onPressed: () {
                   Get.toNamed(Routes.ADD_CART);
-                  // controller.scanQR();
                 },
                 child: Text(
                   'Transaksi',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Expanded(
-                child: Container(),
+              ElevatedButton(
+                onPressed: () {
+                  // Get.snackbar("title", "oke");
+                  Get.toNamed(Routes.HISTORY);
+                },
+                child: Text(
+                  'Data Transaksi',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ],
           ),

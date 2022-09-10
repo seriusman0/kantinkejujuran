@@ -11,6 +11,7 @@ abstract class Routes {
   static const ADD_BARANG = _Paths.ADD_BARANG;
   static const GET_BARANG = _Paths.GET_BARANG;
   static const EDIT_BARANG = _Paths.EDIT_BARANG;
+  static const HISTORY = _Paths.HISTORY;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ADD_BARANG = '/add-barang';
   static const GET_BARANG = '/get-barang';
   static const EDIT_BARANG = '/edit-barang';
+  static const HISTORY = '/history';
 }

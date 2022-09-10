@@ -55,7 +55,7 @@ class AddBarangController extends GetxController {
         },
       ).then((value) {
         if (value.body.isNotEmpty) {
-          var data = json.decode(value.body);
+          // var data = json.decode(value.body);
           Get.snackbar("Berhasil", "Barang berhasil di tambah",
               snackPosition: SnackPosition.BOTTOM);
         }

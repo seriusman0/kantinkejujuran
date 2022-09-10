@@ -10,6 +10,8 @@ import '../modules/edit_barang/bindings/edit_barang_binding.dart';
 import '../modules/edit_barang/views/edit_barang_view.dart';
 import '../modules/get_barang/bindings/get_barang_binding.dart';
 import '../modules/get_barang/views/get_barang_view.dart';
+import '../modules/history/bindings/history_binding.dart';
+import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/home_admin/bindings/home_admin_binding.dart';
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.EDIT_BARANG,
       page: () => EditBarangView(),
       binding: EditBarangBinding(),
+    ),
+    GetPage(
+      name: _Paths.HISTORY,
+      page: () => HistoryView(),
+      binding: HistoryBinding(),
     ),
   ];
 }
