@@ -24,7 +24,6 @@ class HistoryController extends GetxController {
         this.pembeli.removeRange(0, this.pembeli.length);
         this.total_bayar.removeRange(0, this.total_bayar.length);
         this.update_at.removeRange(0, this.update_at.length);
-        Get.snackbar("Oke", "Okeee");
 
         for (int i = 0; i < (json.decode(response.body).length); i++) {
           this.id_payment.add(jsonDecode(response.body)[i]['id_payment']);
@@ -33,7 +32,6 @@ class HistoryController extends GetxController {
               .total_bayar
               .add(int.parse(jsonDecode(response.body)[i]['total_bayar']));
           this.update_at.add(jsonDecode(response.body)[i]['update_at']);
-          this.pembeli.add(jsonDecode(response.body)[i]['pembeli']);
         }
       }
     } catch (e) {
@@ -44,15 +42,16 @@ class HistoryController extends GetxController {
 
   Future<RxList<String>> getTotalTagihan() async {
     try {
-      final response = await http.get(Uri.parse("$server/get_total_bayar.php"));
-      if (response.statusCode == 200) {
-        this.total_tagihan.removeRange(0, this.total_tagihan.length);
-        Get.snackbar("Oke", "Okeee");
+      this.total_tagihan.removeRange(0, this.total_tagihan.length);
+      // Get.snackbar("Oke", "${this.total_bayar.length}");
 
-        for (int i = 0; i < total_bayar.length; i++) {
+      for (int i = 0; i < this.total_bayar.length; i++) {
+        final response = await http.get(Uri.parse(
+            "$server/get_total_tagihan.php?id_payment=${id_payment[i]}"));
+        if (response.statusCode == 200) {
           this
-              .total_bayar
-              .add(int.parse(jsonDecode(response.body)[i]['total_bayar']));
+              .total_tagihan
+              .add(int.parse(jsonDecode(response.body)['total_tagihan']));
         }
       }
     } catch (e) {

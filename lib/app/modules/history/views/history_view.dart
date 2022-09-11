@@ -13,6 +13,9 @@ class HistoryView extends GetView<HistoryController> {
       appBar: AppBar(
         title: Text('HistoryView'),
         centerTitle: true,
+        leading: BackButton(
+          onPressed: () => Get.offAllNamed(Routes.HOME),
+        ),
       ),
       body: Column(
         children: [
@@ -56,9 +59,9 @@ class HistoryView extends GetView<HistoryController> {
                                           NumberFormat.currency(
                                                   locale: 'id',
                                                   decimalDigits: 0,
-                                                  symbol: "Total Bayar : Rp ")
-                                              .format(
-                                                  controller.total_tagihan[0])),
+                                                  symbol: "Total belanja : Rp ")
+                                              .format(controller
+                                                  .total_tagihan[index])),
                                     ],
                                   ),
                                 ),
@@ -71,24 +74,9 @@ class HistoryView extends GetView<HistoryController> {
                                       ElevatedButton(
                                           onPressed: () {},
                                           child: Icon(
-                                            Icons.edit,
+                                            Icons.download,
                                             color: Colors.green,
                                           )),
-                                      ElevatedButton(
-                                          onPressed: () {
-                                            Get.defaultDialog(
-                                              textCancel: "Batal",
-                                              title: "Hapus Akun",
-                                              middleText:
-                                                  "Anda yakin akan tindakan ini? ${controller.id_payment[index]}",
-                                              textConfirm: "Ya",
-                                              confirmTextColor: Colors.white,
-                                              onCancel: () => Get.back(),
-                                              onConfirm: () {},
-                                            );
-                                          },
-                                          child: Icon(Icons.delete,
-                                              color: Colors.red)),
                                     ],
                                   ))
                             ],

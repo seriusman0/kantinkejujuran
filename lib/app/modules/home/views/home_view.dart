@@ -31,7 +31,7 @@ class HomeView extends GetView<HomeController> {
               ElevatedButton(
                 onPressed: () {
                   // Get.snackbar("title", "oke");
-                  Get.toNamed(Routes.HISTORY);
+                  Get.offAllNamed(Routes.HISTORY);
                 },
                 child: Text(
                   'Data Transaksi',
