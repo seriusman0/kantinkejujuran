@@ -15,6 +15,9 @@ dependencies:
   flutter: 
     sdk: flutter
   flutter_session_manager: ^1.0.3
+  pdf: ^3.8.3
+  path_provider: ^2.0.11
+  open_file: ^3.1.1
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

@@ -15,27 +15,66 @@ class HomeView extends GetView<HomeController> {
         fit: BoxFit.cover,
       )),
       child: Scaffold(
+        backgroundColor: Colors.grey,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  Get.toNamed(Routes.ADD_CART);
-                },
-                child: Text(
-                  'Transaksi',
-                  style: TextStyle(fontSize: 20),
+              Expanded(
+                child: CircleAvatar(
+                  radius: 45,
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/images/icon.png",
+                      fit: BoxFit.cover,
+                      width: 80,
+                      height: 80,
+                    ),
+                  ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  // Get.snackbar("title", "oke");
-                  Get.offAllNamed(Routes.HISTORY);
-                },
+              Center(
                 child: Text(
-                  'Data Transaksi',
-                  style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                    "SELAMAT DATANG \nDI APLIKASI \nKANTIN KEJUJURAN \nBROSIS HOUSE KETINTANG"),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(),
+                      padding: EdgeInsets.all(8.0),
+                      height: 200,
+                      width: 200,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.ADD_CART);
+                        },
+                        child: Text(
+                          'Transaksi',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.all(8.0),
+                        height: 200,
+                        width: 200,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Get.offAllNamed(Routes.HISTORY);
+                          },
+                          child: Text(
+                            'Data Transaksi',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

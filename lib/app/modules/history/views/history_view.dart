@@ -35,22 +35,30 @@ class HistoryView extends GetView<HistoryController> {
                           child: Row(
                             children: [
                               Expanded(
-                                flex: 3,
+                                  flex: 1,
+                                  child: Center(
+                                      child: Text(
+                                    (index + 1).toString(),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ))),
+                              Expanded(
+                                flex: 10,
                                 child: Container(
+                                  margin: EdgeInsets.all(8.0),
                                   padding: EdgeInsets.only(left: 8),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text("${controller.pembeli[index]}"),
                                       Text(
-                                          style: TextStyle(fontSize: 15),
-                                          NumberFormat.currency(
-                                                  locale: 'id',
-                                                  decimalDigits: 0,
-                                                  symbol: "Total bayar : Rp ")
-                                              .format(controller
-                                                  .total_bayar[index])),
+                                        "${controller.pembeli[index]}",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20),
+                                        textAlign: TextAlign.right,
+                                      ),
                                       Text(
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
@@ -59,23 +67,46 @@ class HistoryView extends GetView<HistoryController> {
                                           NumberFormat.currency(
                                                   locale: 'id',
                                                   decimalDigits: 0,
-                                                  symbol: "Total belanja : Rp ")
+                                                  symbol: "Rp ")
                                               .format(controller
                                                   .total_tagihan[index])),
+                                      Text(
+                                          style: TextStyle(fontSize: 15),
+                                          NumberFormat.currency(
+                                                  locale: 'id',
+                                                  decimalDigits: 0,
+                                                  symbol: "Bayar : Rp ")
+                                              .format(controller
+                                                  .total_bayar[index])),
+                                      Text(
+                                          style: TextStyle(fontSize: 15),
+                                          NumberFormat.currency(
+                                                  locale: 'id',
+                                                  decimalDigits: 0,
+                                                  symbol: "Kembali : Rp ")
+                                              .format(controller
+                                                      .total_bayar[index] -
+                                                  controller
+                                                      .total_tagihan[index])),
+                                      Text("${controller.update_at[index]}")
                                     ],
                                   ),
                                 ),
                               ),
                               Expanded(
-                                  flex: 1,
+                                  flex: 4,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       ElevatedButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            controller.getPdf(
+                                                index,
+                                                controller
+                                                    .total_tagihan[index]);
+                                          },
                                           child: Icon(
                                             Icons.download,
-                                            color: Colors.green,
                                           )),
                                     ],
                                   ))
