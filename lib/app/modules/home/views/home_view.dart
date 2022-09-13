@@ -39,43 +39,48 @@ class HomeView extends GetView<HomeController> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                     "SELAMAT DATANG \nDI APLIKASI \nKANTIN KEJUJURAN \nBROSIS HOUSE KETINTANG"),
               ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    height: 200,
+                    width: 200,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shadowColor: MaterialStateProperty.all(Colors.orange),
+                      ),
+                      onPressed: () {
+                        Get.toNamed(Routes.ADD_CART);
+                      },
+                      child: Text(
+                        'Transaksi',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    height: 200,
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.offAllNamed(Routes.HISTORY);
+                      },
+                      child: Text(
+                        'Data Transaksi',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(),
-                      padding: EdgeInsets.all(8.0),
-                      height: 200,
-                      width: 200,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Get.toNamed(Routes.ADD_CART);
-                        },
-                        child: Text(
-                          'Transaksi',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        height: 200,
-                        width: 200,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Get.offAllNamed(Routes.HISTORY);
-                          },
-                          child: Text(
-                            'Data Transaksi',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                flex: 2,
+                child: Container(),
               ),
             ],
           ),
