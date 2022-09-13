@@ -1,7 +1,7 @@
 name: kantinkejujuran
-version: 1.0.0+1
+version: 1.0.0+2
 publish_to: none
-description: A new Flutter project.
+description: Update of Ketintang.
 environment: 
   sdk: '>=2.18.0-147.0.dev <3.0.0'
 
