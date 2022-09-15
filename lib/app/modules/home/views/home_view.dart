@@ -47,8 +47,6 @@ class HomeView extends GetView<HomeController> {
                 children: [
                   Container(
                     padding: EdgeInsets.all(8.0),
-                    height: 200,
-                    width: 200,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         shadowColor: MaterialStateProperty.all(Colors.orange),
@@ -64,8 +62,6 @@ class HomeView extends GetView<HomeController> {
                   ),
                   Container(
                     padding: EdgeInsets.all(8.0),
-                    height: 200,
-                    width: 200,
                     child: ElevatedButton(
                       onPressed: () {
                         Get.offAllNamed(Routes.HISTORY);

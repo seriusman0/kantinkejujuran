@@ -114,9 +114,12 @@ class HistoryController extends GetxController {
         final response = await http.get(Uri.parse(
             "$server/get_total_tagihan.php?id_payment=${id_payment[i]}"));
         if (response.statusCode == 200) {
-          this
-              .total_tagihan
-              .add(int.parse(jsonDecode(response.body)['total_tagihan']));
+          if (jsonDecode(response.body)['total_tagihan'] == null) {
+            this.total_tagihan.add(0);
+          } else
+            this
+                .total_tagihan
+                .add(int.parse(jsonDecode(response.body)['total_tagihan']));
         }
       }
     } catch (e) {
